@@ -1,18 +1,44 @@
-class Pet:
-    print("Hi I am a pet profile programming class")
-pet_obj=Pet()
-class Pet_Profile:
-    catogory='pet'
-    def __init__(self,name,animal_type,colour,age,favourite_food):
-        self.name=name
-        self.animal_type=animal_type
-        self.colour=colour
-        self.age=age
-        self.favourite_food=favourite_food
-marcus=Pet_Profile('Marcus','Dog','White and brown',7,'Dog bone')
-john=Pet_Profile('John','Dog','Brown',8,'Dog bone')
-jonathan=Pet_Profile('Jonathan','Dog','Gold and brown',9,'Dog bone')
-print(marcus.name, "fur is", marcus.colour, "He is a", marcus.animal_type, marcus.name, "favourite food is", marcus.favourite_food)
-print(john.name,"fur is", john.colour, "He is a", john.animal_type, john.name, "favourite food is", john.favourite_food)
-print(jonathan.name, "fur is", jonathan.colour, "He is a", jonathan.animal_type, jonathan.name, "favourite food is", jonathan.favourite_food)
+class Daily_Message:
+    def __init__(self):
+        self.message=""
+    def get_message(self):
+        self.message=input("What's today's daily message?")
+    def print_message(self):
+        print("Message in upper",self.message.upper)
+daily_text=Daily_Message()
+daily_text.get_message()
+daily_text.print_message()
+class Helper_Session:
+    def __init__(self):
+        print("Daily Data helper session started")
+    def __del__(self):
+        print("Daily Data helper session ended")
+def create_session():
+    print("Creating Helper session")
+    session=Helper_Session()
+    print("Session is ready")
+    return session
+print("Calling create_session function")
+session_object=create_session()
+print("Program is running")
+class Pair_Finder:
+    def find_pairs(self,numbers,target):
+     look={}
 
+
+     for index, number in enumerate(numbers):
+        needed_num=target-number
+
+        if needed_num in look:
+         return(look[needed_num],index)
+         look[number]=index
+     return None
+numbers=(10,15,16,20,12)
+target_value=(int(input("Enter target sum to search")))
+result=Pair_Finder().find_pairs(numbers,target_value)
+if result is not None:
+   print("index1=%d,index2=%d" %result)
+else:
+   print("No matching pair found.")
+del session_object
+print("The session has concluded")
